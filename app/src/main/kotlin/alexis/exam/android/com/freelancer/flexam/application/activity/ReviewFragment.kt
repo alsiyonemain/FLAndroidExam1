@@ -1,6 +1,7 @@
-package alexis.exam.android.com.freelancer.flexam
+package alexis.exam.android.com.freelancer.flexam.application.activity
 
 
+import alexis.exam.android.com.freelancer.flexam.R
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="alexis.exam.android.com.freelancer.flexam.ScrollingActivity"
+    tools:context="alexis.exam.android.com.freelancer.flexam.application.activity.ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
     <RelativeLayout
@@ -59,14 +59,14 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <fragment android:name="alexis.exam.android.com.freelancer.flexam.ProfileFragment"
+            <fragment android:name="alexis.exam.android.com.freelancer.flexam.application.activity.ProfileFragment"
                 android:id="@+id/profileFragment"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout="@layout/fragment_profile" />
 
-            <fragment android:name="alexis.exam.android.com.freelancer.flexam.ReviewFragment"
+            <fragment android:name="alexis.exam.android.com.freelancer.flexam.application.activity.ReviewFragment"
                 android:id="@+id/reviewFragment"
                 android:layout_weight="2"
                 android:layout_width="match_parent"
