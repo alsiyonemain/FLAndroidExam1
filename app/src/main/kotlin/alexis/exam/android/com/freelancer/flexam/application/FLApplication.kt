@@ -1,7 +1,8 @@
 package alexis.exam.android.com.freelancer.flexam.application
 
-import alexis.exam.android.com.freelancer.api.RetrofitModule
-import alexis.exam.android.com.freelancer.dagger.ApplicationScope
+import alexis.exam.android.com.freelancer.flexam.BuildConfig
+import alexis.exam.android.com.freelancer.flexam.application.activity.ComponentProvider
+import alexis.exam.android.com.freelancer.modules.RetrofitModule
 import android.app.Application
 import dagger.Component
 import retrofit2.Retrofit
@@ -11,28 +12,29 @@ import javax.inject.Singleton
 /**
  * Created by alzayon on 9/25/2017.
  */
-class FLApplication : Application() {
+class FLApplication : Application(), ComponentProvider<FLApplication.FLComponent> {
 
-    companion object {
-        val BASE_URL = "http://localhost:8080"
-    }
+    private lateinit var _component: FLComponent
 
     @Inject
     lateinit var retrofit : Retrofit
 
-
-    lateinit var retrofitModule : RetrofitModule
-
-
     override fun onCreate() {
         super.onCreate()
-        retrofitModule = RetrofitModule(BASE_URL)
-
+        val retrofitModule = RetrofitModule(BuildConfig.BASE_URL)
+        _component = DaggerFLApplication_FLComponent.builder()
+                .retrofitModule(retrofitModule)
+                .build();
+        _component.inject(this);
     }
 
-    @ApplicationScope
+    @Singleton
     @Component(modules = arrayOf(RetrofitModule::class))
     interface FLComponent {
         fun inject(application: FLApplication);
+    }
+
+    override fun getComponent(): FLComponent {
+        return _component
     }
 }

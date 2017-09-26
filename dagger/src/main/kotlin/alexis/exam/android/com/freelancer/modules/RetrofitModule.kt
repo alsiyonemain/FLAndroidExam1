@@ -1,4 +1,4 @@
-package alexis.exam.android.com.freelancer.api
+package alexis.exam.android.com.freelancer.modules
 
 import dagger.Module
 import dagger.Provides
