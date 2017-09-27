@@ -1,0 +1,30 @@
+p alexis.exam.android.com.freelancer.scope 0
+d 0/ActivityScope
+a javax.inject.Scope 0
+c 0 0/ActivityScope
+a java.lang.annotation.Retention 1
+c 1 0/ActivityScope
+d 0/ApplicationScope
+c 0 0/ApplicationScope
+c 1 0/ApplicationScope
+p alexis.exam.android.com.freelancer.modules 1
+d 1/RetrofitModule
+a dagger.Module 2
+c 2 1/RetrofitModule
+a javax.inject.Singleton 3
+m 3 1/RetrofitModule provideHttpLoggingInterceptor
+a dagger.Provides 4
+m 4 1/RetrofitModule provideHttpLoggingInterceptor
+a org.jetbrains.annotations.NotNull 5
+m 5 1/RetrofitModule provideHttpLoggingInterceptor
+m 3 1/RetrofitModule provideOkkHttpClient
+m 4 1/RetrofitModule provideOkkHttpClient
+m 5 1/RetrofitModule provideOkkHttpClient
+m 3 1/RetrofitModule provideJacksonConverterFactory
+m 4 1/RetrofitModule provideJacksonConverterFactory
+m 5 1/RetrofitModule provideJacksonConverterFactory
+m 3 1/RetrofitModule provideRetrofit
+m 4 1/RetrofitModule provideRetrofit
+m 5 1/RetrofitModule provideRetrofit
+f 5 1/RetrofitModule baseUrl
+m 5 1/RetrofitModule getBaseUrl

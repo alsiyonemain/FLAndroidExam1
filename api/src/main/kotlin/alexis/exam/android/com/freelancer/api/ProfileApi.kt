@@ -1,6 +1,6 @@
 package alexis.exam.android.com.freelancer.api
 
-import alexis.exam.android.com.freelancer.dto.ProfileResult
+import alexis.exam.android.com.freelancer.dto.Profile
 import retrofit2.http.GET
 import rx.Single
 
@@ -9,5 +9,5 @@ import rx.Single
  */
 interface ProfileApi {
     @GET
-    fun getProfileData() : Single<ProfileResult>
+    fun getProfileData() : Single<Profile>
 }

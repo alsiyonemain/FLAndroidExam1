@@ -1,5 +1,7 @@
 package alexis.exam.android.com.freelancer.flexam.application.presenter
 
+import alexis.exam.android.com.freelancer.flexam.application.interactor.ProfileInteractor
+import alexis.exam.android.com.freelancer.flexam.application.view.ProfileView
 import alexis.exam.android.com.freelancer.scope.ActivityScope
 import dagger.Module
 import dagger.Provides
@@ -11,7 +13,8 @@ import dagger.Provides
 class PresenterModule {
     @ActivityScope
     @Provides
-    fun provideProfilePresenter() : ProfilePresenter {
-        return DefaultProfilePresenter()
+    fun provideProfilePresenter(profileInteractor: ProfileInteractor)
+            : ProfilePresenter {
+        return DefaultProfilePresenter(profileInteractor)
     }
 }

@@ -7,7 +7,10 @@ import java.util.function.Consumer
  * Created by alexis on 9/27/17.
  */
 interface ProfileInteractor {
-    fun fetchProfile(listener: Consumer<Profile>)
-    fun onProfileFetchedCompleted()
-    fun onProfileFetchError(error: Throwable)
+    interface OnProfileFetchListener {
+        fun onSuccess(profile: Profile)
+        fun onComplete()
+        fun onError(throwable: Throwable)
+    }
+    fun fetchProfile(listener: OnProfileFetchListener)
 }

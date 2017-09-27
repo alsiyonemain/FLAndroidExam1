@@ -1,5 +1,6 @@
 package alexis.exam.android.com.freelancer.flexam.application
 
+import alexis.exam.android.com.freelancer.api.ProfileApi
 import alexis.exam.android.com.freelancer.flexam.BuildConfig
 import alexis.exam.android.com.freelancer.flexam.application.activity.ComponentProvider
 import alexis.exam.android.com.freelancer.module.ApiModule
@@ -23,12 +24,13 @@ class FLApplication : Application(), ComponentProvider<FLApplication.FLComponent
     @Singleton
     @Component(modules = arrayOf(ApiModule::class, RetrofitModule::class))
     interface FLComponent {
-        fun inject(application: FLApplication);
+        fun provideProfileApi() : ProfileApi
+        fun inject(application : FLApplication)
     }
 
     override fun getComponent(): FLComponent {
         if (_component == null) {
-            val retrofitModule = RetrofitModule(BuildConfig.BASE_URL)
+           val retrofitModule = RetrofitModule(BuildConfig.BASE_URL)
             _component = DaggerFLApplication_FLComponent.builder()
                     .retrofitModule(retrofitModule)
                     .build();

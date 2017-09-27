@@ -11,10 +11,9 @@ import javax.inject.Singleton
  */
 @Module
 class ApiModule {
-
     @Singleton
     @Provides
-    fun provideProfileApiModule(builder: Retrofit.Builder) : ProfileApi {
+    fun provideProfileApi(builder: Retrofit.Builder) : ProfileApi {
         val retrofit = builder.build()
         return retrofit.create(ProfileApi::class.java)
     }
