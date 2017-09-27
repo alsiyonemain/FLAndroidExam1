@@ -1,17 +1,16 @@
-package alexis.exam.android.com.freelancer.modules
+package alexis.exam.android.com.freelancer.module
 
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.jackson.JacksonConverterFactory
 import javax.inject.Singleton
 
 /**
  * Created by alzayon on 9/25/2017.
- * TODO:
- * Use proper configuration for the base url
  */
 @Module
 class RetrofitModule(val baseUrl : String) {
@@ -40,15 +39,13 @@ class RetrofitModule(val baseUrl : String) {
 
     @Singleton
     @Provides
-    fun provideRetrofit(httpLoggingInterceptor: HttpLoggingInterceptor,
-                        jacksonConverterFactory: JacksonConverterFactory,
-                        okHttpClient: OkHttpClient) : Retrofit {
+    fun provideRestAdapter(jacksonConverterFactory: JacksonConverterFactory,
+                        okHttpClient: OkHttpClient) : Retrofit.Builder {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(jacksonConverterFactory)
                 .client(okHttpClient)
-                .build();
-
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
     }
 
 }

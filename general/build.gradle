@@ -20,6 +20,11 @@ dependencies {
 
     //Jackson
     compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
+
+    // RxJava & RxAndroid
+    compile "io.reactivex:rxjava:1.2.9"
+    compile "io.reactivex:rxandroid:1.2.1"
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 }
 
 sourceSets {

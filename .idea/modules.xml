@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FLExam.iml" filepath="$PROJECT_DIR$/FLExam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FLAndroidExam1.iml" filepath="$PROJECT_DIR$/FLAndroidExam1.iml" />
       <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dagger/dagger.iml" filepath="$PROJECT_DIR$/dagger/dagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/general/dagger.iml" filepath="$PROJECT_DIR$/general/dagger.iml" />
     </modules>
   </component>
 </project>

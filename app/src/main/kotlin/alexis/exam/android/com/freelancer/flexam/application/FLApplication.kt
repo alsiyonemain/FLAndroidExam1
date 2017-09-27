@@ -2,11 +2,10 @@ package alexis.exam.android.com.freelancer.flexam.application
 
 import alexis.exam.android.com.freelancer.flexam.BuildConfig
 import alexis.exam.android.com.freelancer.flexam.application.activity.ComponentProvider
-import alexis.exam.android.com.freelancer.modules.RetrofitModule
+import alexis.exam.android.com.freelancer.module.ApiModule
+import alexis.exam.android.com.freelancer.module.RetrofitModule
 import android.app.Application
 import dagger.Component
-import retrofit2.Retrofit
-import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
@@ -14,27 +13,26 @@ import javax.inject.Singleton
  */
 class FLApplication : Application(), ComponentProvider<FLApplication.FLComponent> {
 
-    private lateinit var _component: FLComponent
-
-    @Inject
-    lateinit var retrofit : Retrofit
+    var _component: FLComponent? = null
 
     override fun onCreate() {
         super.onCreate()
-        val retrofitModule = RetrofitModule(BuildConfig.BASE_URL)
-        _component = DaggerFLApplication_FLComponent.builder()
-                .retrofitModule(retrofitModule)
-                .build();
-        _component.inject(this);
+        getComponent().inject(this);
     }
 
     @Singleton
-    @Component(modules = arrayOf(RetrofitModule::class))
+    @Component(modules = arrayOf(ApiModule::class, RetrofitModule::class))
     interface FLComponent {
         fun inject(application: FLApplication);
     }
 
     override fun getComponent(): FLComponent {
-        return _component
+        if (_component == null) {
+            val retrofitModule = RetrofitModule(BuildConfig.BASE_URL)
+            _component = DaggerFLApplication_FLComponent.builder()
+                    .retrofitModule(retrofitModule)
+                    .build();
+        }
+        return _component!!
     }
 }
