@@ -1,7 +1,8 @@
-package alexis.exam.android.com.freelancer.flexam.application.presenter
+package alexis.exam.android.com.freelancer.flexam.application.modules
 
 import alexis.exam.android.com.freelancer.flexam.application.interactor.ProfileInteractor
-import alexis.exam.android.com.freelancer.flexam.application.view.ProfileView
+import alexis.exam.android.com.freelancer.flexam.application.presenter.DefaultProfilePresenter
+import alexis.exam.android.com.freelancer.flexam.application.presenter.ProfilePresenter
 import alexis.exam.android.com.freelancer.scope.ActivityScope
 import dagger.Module
 import dagger.Provides

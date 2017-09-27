@@ -1,15 +1,11 @@
 package alexis.exam.android.com.freelancer.flexam.application.activity
 
-import alexis.exam.android.com.freelancer.api.ProfileApi
 import alexis.exam.android.com.freelancer.flexam.R
 import alexis.exam.android.com.freelancer.flexam.application.FLApplication
-import alexis.exam.android.com.freelancer.flexam.application.interactor.InteractorModule
-import alexis.exam.android.com.freelancer.flexam.application.interactor.ProfileInteractor
-import alexis.exam.android.com.freelancer.flexam.application.presenter.PresenterModule
+import alexis.exam.android.com.freelancer.flexam.application.modules.InteractorModule
+import alexis.exam.android.com.freelancer.flexam.application.modules.PresenterModule
 import alexis.exam.android.com.freelancer.flexam.application.presenter.ProfilePresenter
 import alexis.exam.android.com.freelancer.flexam.application.view.ProfileView
-import alexis.exam.android.com.freelancer.module.ApiModule
-import alexis.exam.android.com.freelancer.module.RetrofitModule
 import alexis.exam.android.com.freelancer.scope.ActivityScope
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -17,13 +13,12 @@ import android.view.Menu
 import android.view.MenuItem
 import dagger.Component
 import kotlinx.android.synthetic.main.activity_scrolling.*
-import kotlinx.android.synthetic.main.content_scrolling.*
 import javax.inject.Inject
 
 class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<ProfileActivity.ProfileComponent> {
 
-//    @Inject
-//    lateinit var profilePresenter : ProfilePresenter
+    @Inject
+    lateinit var profilePresenter : ProfilePresenter
 
     var _component: ProfileComponent? = null
 
@@ -33,7 +28,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
         setSupportActionBar(toolbar)
 
         getComponent().inject(this)
-        //profilePresenter.setView(this)
+        profilePresenter.setView(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -59,10 +54,8 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
     }
 
     @ActivityScope
-    @Component(dependencies = arrayOf(FLApplication.FLComponent::class))
+    @Component(dependencies = arrayOf(FLApplication.FLComponent::class), modules = arrayOf(PresenterModule::class, InteractorModule::class))
     interface ProfileComponent {
-//        fun provideProfileInteractor() : ProfileInteractor
-//        fun provideProfilePresenter() : ProfilePresenter
         fun inject(profileActivity : ProfileActivity)
     }
 

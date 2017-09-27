@@ -3,8 +3,8 @@ package alexis.exam.android.com.freelancer.flexam.application
 import alexis.exam.android.com.freelancer.api.ProfileApi
 import alexis.exam.android.com.freelancer.flexam.BuildConfig
 import alexis.exam.android.com.freelancer.flexam.application.activity.ComponentProvider
-import alexis.exam.android.com.freelancer.module.ApiModule
-import alexis.exam.android.com.freelancer.module.RetrofitModule
+import alexis.exam.android.com.freelancer.flexam.application.api.ApiModule
+import alexis.exam.android.com.freelancer.flexam.application.api.RetrofitModule
 import android.app.Application
 import dagger.Component
 import javax.inject.Singleton
