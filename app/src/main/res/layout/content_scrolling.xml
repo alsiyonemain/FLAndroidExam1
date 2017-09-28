@@ -140,8 +140,7 @@
             <LinearLayout
                 android:id="@+id/reviewView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="alexis.exam.android.com.freelancer.flexam.application.activity.ReviewFragment">
+                android:layout_height="match_parent">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
