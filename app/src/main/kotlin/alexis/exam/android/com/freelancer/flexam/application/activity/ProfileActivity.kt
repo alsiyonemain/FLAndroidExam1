@@ -74,6 +74,9 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
+        menu.add(R.string.share)
+        menu.add(R.string.save)
+        menu.add(R.string.export)
         menuInflater.inflate(R.menu.menu_scrolling, menu)
         return true
     }

@@ -87,6 +87,7 @@
                     android:layout_height="50dip"/>
 
                 <LinearLayout
+                    android:id="@+id/profileView"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -136,12 +137,16 @@
 
             </LinearLayout>
 
-            <fragment android:name="alexis.exam.android.com.freelancer.flexam.application.activity.ReviewFragment"
-                android:id="@+id/reviewFragment"
-                android:layout_weight="2"
+            <LinearLayout
+                android:id="@+id/reviewView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_review" />
+                android:layout_height="match_parent"
+                tools:context="alexis.exam.android.com.freelancer.flexam.application.activity.ReviewFragment">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/freelancer_empty_view" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 
