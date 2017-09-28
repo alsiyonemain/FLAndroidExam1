@@ -4,6 +4,7 @@ import alexis.exam.android.com.freelancer.dto.Profile
 import alexis.exam.android.com.freelancer.flexam.application.interactor.ProfileInteractor
 import alexis.exam.android.com.freelancer.flexam.application.view.ProfileView
 import alexis.exam.android.com.freelancer.flexam.application.view.View
+import android.util.Log
 
 /**
  * Created by alexis on 9/27/17.
@@ -16,7 +17,7 @@ class DefaultProfilePresenter(val profileInteractor : ProfileInteractor) : BaseP
     }
 
     override fun onSuccess(profile: Profile) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       Log.v("ProfilePresenter", profile.toString())
     }
 
     override fun onComplete() {
@@ -24,6 +25,6 @@ class DefaultProfilePresenter(val profileInteractor : ProfileInteractor) : BaseP
     }
 
     override fun onError(throwable: Throwable) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.v("ProfilePresenter", throwable.message)
     }
 }

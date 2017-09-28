@@ -8,6 +8,6 @@ import rx.Single
  * Created by alzayon on 9/24/2017.
  */
 interface ProfileApi {
-    @GET
+    @GET("/profile.json")
     fun getProfileData() : Single<Profile>
 }

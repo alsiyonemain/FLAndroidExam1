@@ -1,6 +1,7 @@
 package alexis.exam.android.com.freelancer.flexam.application.activity
 
 import alexis.exam.android.com.freelancer.flexam.R
+import alexis.exam.android.com.freelancer.flexam.application.DaggerFLApplication_FLComponent
 import alexis.exam.android.com.freelancer.flexam.application.FLApplication
 import alexis.exam.android.com.freelancer.flexam.application.modules.InteractorModule
 import alexis.exam.android.com.freelancer.flexam.application.modules.PresenterModule
@@ -12,7 +13,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import dagger.Component
-import kotlinx.android.synthetic.main.activity_scrolling.*
 import javax.inject.Inject
 
 class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<ProfileActivity.ProfileComponent> {
@@ -24,11 +24,13 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scrolling)
-        setSupportActionBar(toolbar)
+        setContentView(R.layout.profile_activity)
+        setSupportActionBar(findViewById(R.id.toolbar))
 
         getComponent().inject(this)
         profilePresenter.setView(this)
+        var profile = profilePresenter.fetchProfile()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,10 +49,6 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
                 return true
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun fetchProfile() {
-        //var profile = profilePresenter.fetchProfile()
     }
 
     @ActivityScope

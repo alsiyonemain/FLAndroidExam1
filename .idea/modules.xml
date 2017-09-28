@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FLAndroidExam1.iml" filepath="$PROJECT_DIR$/FLAndroidExam1.iml" />
       <module fileurl="file://D:\alexis\dev2\__apps\android\FLExam\FLAndroidExam1.iml" filepath="D:\alexis\dev2\__apps\android\FLExam\FLAndroidExam1.iml" />
       <module fileurl="file://$PROJECT_DIR$/FLExam.iml" filepath="$PROJECT_DIR$/FLExam.iml" />
       <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
