@@ -18,6 +18,7 @@ class DefaultProfilePresenter(val profileInteractor : ProfileInteractor) : BaseP
 
     override fun onSuccess(profile: Profile) {
        Log.v("ProfilePresenter", profile.toString())
+       getView()?.onProfileLoaded(profile)
     }
 
     override fun onComplete() {

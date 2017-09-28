@@ -23,15 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/text_margin"
-            android:layout_below="@id/btnMembership"
-            android:text="@string/danapotplant" />
+            android:layout_below="@id/btnMembership" />
         <TextView
             android:id="@+id/smallName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/text_margin"
-            android:layout_below="@id/bigName"
-            android:text="@string/danapotplant" />
+            android:layout_below="@id/bigName" />
 
         <LinearLayout
             android:id="@+id/buttonsContainer"
@@ -59,12 +57,84 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <fragment android:name="alexis.exam.android.com.freelancer.flexam.application.activity.ProfileFragment"
-                android:id="@+id/profileFragment"
-                android:layout_weight="1"
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_profile" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_text_default" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_skills" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/skillsListView"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnAddSkill"
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:text="@string/plus"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorGrey"
+                        android:src="@android:drawable/ic_input_add"/>
+                    <android.support.design.widget.TextInputEditText
+                        android:hint="@string/add_more_skill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_exams" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/examsListView"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnAddExam"
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:text="@string/plus"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorGrey"
+                        android:src="@android:drawable/ic_input_add"/>
+                    <android.support.design.widget.TextInputEditText
+                        android:hint="@string/take_more_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <fragment android:name="alexis.exam.android.com.freelancer.flexam.application.activity.ReviewFragment"
                 android:id="@+id/reviewFragment"

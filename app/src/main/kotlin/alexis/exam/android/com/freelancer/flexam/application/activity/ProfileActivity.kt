@@ -1,5 +1,7 @@
 package alexis.exam.android.com.freelancer.flexam.application.activity
 
+import alexis.exam.android.com.freelancer.dto.Profile
+import alexis.exam.android.com.freelancer.dto.Skill
 import alexis.exam.android.com.freelancer.flexam.R
 import alexis.exam.android.com.freelancer.flexam.application.DaggerFLApplication_FLComponent
 import alexis.exam.android.com.freelancer.flexam.application.FLApplication
@@ -10,8 +12,11 @@ import alexis.exam.android.com.freelancer.flexam.application.view.ProfileView
 import alexis.exam.android.com.freelancer.scope.ActivityScope
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import dagger.Component
 import javax.inject.Inject
 
@@ -29,8 +34,42 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
 
         getComponent().inject(this)
         profilePresenter.setView(this)
-        var profile = profilePresenter.fetchProfile()
 
+        //Fetch the profile
+        profilePresenter.fetchProfile()
+    }
+
+    override fun onProfileLoaded(profile : Profile) {
+        setupBasicProfile(profile)
+        setupSkillsList(profile)
+        setupExamsList(profile)
+    }
+
+    private fun setupBasicProfile(profile : Profile) {
+        val smallName = findViewById<TextView>(R.id.smallName)
+        val bigName = findViewById<TextView>(R.id.bigName)
+        smallName.text = profile.username
+        bigName.text = profile.username
+    }
+
+    private fun setupSkillsList(profile : Profile) {
+        val skillsListView = findViewById<RecyclerView>(R.id.skillsListView)
+        skillsListView.setHasFixedSize(true);
+        val layoutManager = LinearLayoutManager(this);
+        skillsListView.setLayoutManager(layoutManager);
+
+        val skillsListAdapter = SkillsListAdapter(profile.skills);
+        skillsListView.setAdapter(skillsListAdapter)
+    }
+
+    private fun setupExamsList(profile : Profile) {
+        val examsListView = findViewById<RecyclerView>(R.id.examsListView)
+        examsListView.setHasFixedSize(true);
+        val layoutManager = LinearLayoutManager(this);
+        examsListView.setLayoutManager(layoutManager);
+
+        val examsListAdapter = ExamsListAdapter(profile.exams);
+        examsListView.setAdapter(examsListAdapter)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -67,4 +106,5 @@ class ProfileActivity : AppCompatActivity(), ProfileView, ComponentProvider<Prof
         }
         return _component!!
     }
+
 }
